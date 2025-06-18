@@ -4,6 +4,65 @@
 
 逻明同学是一个基于PromptX框架开发的高级AI角色，专注于问题分析和解决方案设计。本版本成功融合了v16程序化自适应思维模板的精华，实现了"像AI程序一样精确思考，像朋友一样自然交流"的设计理念。
 
+**重要说明**：本项目提供的是AI角色定义文件，需要配合PromptX框架才能运行。逻明同学的所有智能能力都依赖于PromptX的MCP服务器环境。
+
+## 📋 依赖说明
+
+### 🔗 **核心依赖**
+- **PromptX框架** - 本项目的运行基础
+  - 项目地址：https://github.com/Deepractice/PromptX
+  - 版本要求：支持DPML协议和MCP服务器
+  - 作用：提供AI角色的运行环境和工具集成能力
+
+### 🎯 **项目关系**
+- **逻明同学项目** = AI角色定义文件（.role.md、.thought.md、.execution.md等）
+- **PromptX框架** = AI角色运行环境（MCP服务器、工具集成、角色激活等）
+- **关系**：逻明同学需要在PromptX环境中才能发挥完整能力
+
+## ⚙️ 环境配置
+
+### 🚀 **一键配置PromptX MCP服务器**
+
+**零配置模式 - 30秒完成配置**
+
+1. **打开Claude Desktop配置文件**
+   - **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
+   - **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
+
+2. **添加MCP服务器配置**
+   ```json
+   {
+     "mcpServers": {
+       "promptx": {
+         "command": "npx",
+         "args": [
+           "-y",
+           "-f",
+           "--registry",
+           "https://registry.npmjs.org",
+           "dpml-prompt@beta",
+           "mcp-server"
+         ]
+       }
+     }
+   }
+   ```
+
+3. **重启Claude Desktop**
+   - 保存配置文件后重启Claude Desktop
+   - 配置成功后会自动下载和启动PromptX MCP服务器
+
+### ✅ **配置验证**
+配置成功后，您应该能看到：
+- Claude Desktop启动时自动连接PromptX MCP服务器
+- 可以使用`promptx_hello`等PromptX命令
+- 能够激活和使用逻明同学角色
+
+### 🔧 **高级配置**（可选）
+如需自定义配置，请参考PromptX官方文档：
+- 文档地址：https://github.com/Deepractice/PromptX/blob/main/README.md
+- 配置选项：工作目录、日志级别、扩展插件等
+
 ## ✨ 核心特性
 
 ### 🧠 **智能分析能力**
@@ -53,15 +112,30 @@
 
 ## 🚀 使用方法
 
+### 📋 **使用前准备**
+在使用逻明同学之前，请确保已完成以下步骤：
+1. ✅ **配置PromptX MCP服务器** - 参考上方"环境配置"章节
+2. ✅ **重启Claude Desktop** - 确保MCP服务器正常运行
+3. ✅ **验证PromptX连接** - 测试`promptx_hello`命令是否可用
+
 ### 1. 环境要求
-- PromptX框架
-- 支持DPML协议的AI系统
+- **PromptX框架** - 必须先完成MCP服务器配置
+- **Claude Desktop** - 支持MCP协议的AI客户端
+- **Node.js环境** - PromptX MCP服务器运行依赖
 
 ### 2. 角色激活
 ```bash
-# 使用PromptX激活逻明同学
+# 第一步：验证PromptX是否正常工作
+promptx_hello
+
+# 第二步：激活逻明同学角色
 promptx_action luoming
 ```
+
+**激活成功标志**：
+- 看到"逻明同学角色已完全激活"的确认信息
+- 获得完整的角色能力说明
+- 可以开始使用逻明同学的专业服务
 
 ### 3. 核心功能使用
 
@@ -111,9 +185,61 @@ promptx_action luoming
 - **v6.0** - 工具集成使用流程
 - **v16.0** - 程序化自适应思维融合 (当前版本)
 
+## 🛠️ 故障排除
+
+### ❌ **常见问题及解决方案**
+
+#### **问题1：找不到promptx命令**
+```
+错误信息：Command 'promptx_hello' not found
+```
+**解决方案**：
+1. 检查MCP服务器配置是否正确
+2. 确认已重启Claude Desktop
+3. 验证配置文件路径和JSON格式
+
+#### **问题2：逻明同学角色激活失败**
+```
+错误信息：角色 "luoming" 不存在
+```
+**解决方案**：
+1. 确保项目文件完整下载
+2. 检查`.promptx/resource/domain/luoming/`目录是否存在
+3. 运行`promptx_init`刷新角色注册表
+
+#### **问题3：MCP服务器连接失败**
+```
+错误信息：MCP server connection failed
+```
+**解决方案**：
+1. 检查网络连接是否正常
+2. 确认Node.js环境可用
+3. 尝试手动运行MCP服务器命令
+4. 查看Claude Desktop日志文件
+
+#### **问题4：角色功能不完整**
+```
+现象：逻明同学回复简单，缺少专业能力
+```
+**解决方案**：
+1. 确认角色激活成功（看到完整激活信息）
+2. 检查所有.thought.md和.execution.md文件是否存在
+3. 重新激活角色：`promptx_action luoming`
+
+### 📞 **获取帮助**
+- **PromptX框架问题** - 访问：https://github.com/Deepractice/PromptX/issues
+- **逻明同学问题** - 在本项目提交Issue
+- **配置问题** - 参考PromptX官方文档
+
 ## 🤝 贡献指南
 
 欢迎提交Issue和Pull Request来改进逻明同学的能力！
+
+### 📋 **贡献方式**
+- **Bug报告** - 发现问题请提交详细的Issue
+- **功能建议** - 欢迎提出新功能和改进建议
+- **代码贡献** - 提交Pull Request改进角色能力
+- **文档完善** - 帮助改进使用说明和配置指南
 
 ## 📄 许可证
 
