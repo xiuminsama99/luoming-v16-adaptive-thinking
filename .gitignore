@@ -1,0 +1,35 @@
+# PromptX项目 .gitignore
+
+# 临时文件
+*.tmp
+*.temp
+*.log
+
+# 系统文件
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 编辑器文件
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 备份文件
+*.bak
+*.backup
+*~
+
+# 缓存文件
+.cache/
+*.cache
+
+# 个人配置文件（如果有的话）
+config.local.*
+.env.local
+
+# 输出文件
+dist/
+build/
+output/
