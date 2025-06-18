@@ -1,5 +1,5 @@
 {
-  "currentState": "memory_saved",
+  "currentState": "recalled-双重记忆",
   "stateHistory": [
     {
       "from": "initial",
@@ -46,7 +46,15 @@
         "--tags",
         "README重写 PromptX集成 安装指南 用户体验 项目文档 角色扩展包 全自动化AI 逻明同学v16"
       ]
+    },
+    {
+      "from": "memory_saved",
+      "command": "recall",
+      "timestamp": "2025-06-18T23:36:21.113Z",
+      "args": [
+        "双重记忆"
+      ]
     }
   ],
-  "lastUpdated": "2025-06-18T23:33:43.800Z"
+  "lastUpdated": "2025-06-18T23:36:21.116Z"
 }
