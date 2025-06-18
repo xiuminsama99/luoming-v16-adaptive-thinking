@@ -1,375 +1,59 @@
-# 逻明同学 v16 程序化自适应思维融合版
+# 逻明同学 v16 - 全自动化AI助手
 
-## 🎯 项目概述
+## 🚀 三步安装，立即使用
 
-逻明同学是一个基于PromptX框架开发的**全自动化AI角色扩展包**，专注于问题分析和解决方案设计。本版本成功融合了v16程序化自适应思维模板的精华，实现了"像AI程序一样精确思考，像朋友一样自然交流"的设计理念。
+**第一步**：配置PromptX到Claude Desktop → **第二步**：下载本项目 → **第三步**：复制角色文件
 
-### 🤖 **逻明同学的核心特色**
-- **🎯 全自动化工作流** - 只需提出需求，自动完成项目分析、方案设计、实施规划
-- **🧠 智能决策能力** - 具备自主思考、问题分析、方案优化的完整能力
-- **💬 人性化交流** - 用"说人话"的方式解释复杂概念，让技术变得易懂
-- **🔄 自适应执行** - 遇到问题自动调整策略，持续优化直到满意
-- **📊 项目管理专家** - 从需求分析到实施落地的全流程专业支持
+### 📋 详细步骤
 
-### 📦 **项目性质说明**
-**本项目是PromptX框架的角色扩展包**，包含逻明同学的完整角色定义文件。需要先安装PromptX框架，然后将本项目的角色文件安装到PromptX中才能使用。
-
-## 📋 系统要求
-
-### 🔗 **核心依赖**
-- **PromptX框架** - 逻明同学的运行基础
-  - 官方地址：https://github.com/Deepractice/PromptX
-  - 版本要求：支持DPML协议和MCP服务器的最新版本
-  - 作用：提供AI角色运行环境、工具集成、记忆管理等核心功能
-
-### 🎯 **系统架构关系**
-```
-Claude Desktop (AI客户端)
-    ↓ MCP协议通信
-PromptX框架 (MCP服务器)
-    ↓ 加载角色文件
-逻明同学角色包 (本项目)
-    ↓ 提供专业能力
-全自动化AI助手体验
-```
-
-## ⚙️ 完整安装配置指南
-
-### 🚀 **第一步：配置PromptX MCP服务器**
-
-**⏱️ 零配置模式 - 30秒完成基础配置**
-
-1. **打开Claude Desktop配置文件**
-   - **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
-   - **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
-
-2. **添加PromptX MCP服务器配置**
+1. **配置PromptX MCP服务器**
+   - 打开Claude Desktop配置文件：`%APPDATA%\Claude\claude_desktop_config.json` (Windows) 或 `~/Library/Application Support/Claude/claude_desktop_config.json` (macOS)
+   - 添加配置：
    ```json
    {
      "mcpServers": {
        "promptx": {
          "command": "npx",
-         "args": [
-           "-y",
-           "-f",
-           "--registry",
-           "https://registry.npmjs.org",
-           "dpml-prompt@beta",
-           "mcp-server"
-         ]
+         "args": ["-y", "-f", "--registry", "https://registry.npmjs.org", "dpml-prompt@beta", "mcp-server"]
        }
      }
    }
    ```
+   - 重启Claude Desktop
 
-3. **重启Claude Desktop**
-   - 保存配置文件后重启Claude Desktop
-   - PromptX会自动下载和启动MCP服务器
-
-### 🏗️ **第二步：初始化PromptX工作环境**
-
-重启Claude Desktop后，执行以下命令初始化PromptX：
-
-```bash
-# 初始化PromptX工作环境（创建必要的目录结构）
-promptx_init
-```
-
-**初始化成功标志**：
-- 看到"PromptX初始化完成"的确认信息
-- 系统自动创建`.promptx`工作目录
-- 可以使用`promptx_hello`查看可用角色
-
-### 📦 **第三步：安装逻明同学角色包**
-
-1. **下载逻明同学项目**
+2. **下载并安装角色包**
    ```bash
-   # 方式1：使用Git克隆
+   # 下载项目
    git clone https://github.com/xiuminsama99/luoming-v16-adaptive-thinking.git
-   
-   # 方式2：直接下载ZIP文件
-   # 访问：https://github.com/xiuminsama99/luoming-v16-adaptive-thinking
-   # 点击"Code" -> "Download ZIP"
-   ```
 
-2. **安装角色文件到PromptX**
-   
-   **方法A：直接复制覆盖（推荐）**
-   ```bash
-   # 将下载项目中的.promptx目录内容复制到PromptX工作目录
-   # 这会将逻明同学的角色文件安装到PromptX中
-   
-   # Windows示例：
-   xcopy "逻明同学项目路径\.promptx\*" "%USERPROFILE%\.promptx\" /E /Y
-   
-   # macOS/Linux示例：
-   cp -r "逻明同学项目路径/.promptx/*" "~/.promptx/"
-   ```
-   
-   **方法B：手动复制**
-   - 打开下载的逻明同学项目文件夹
-   - 找到`.promptx`目录
-   - 将其中的所有内容复制到您的PromptX工作目录中
-   - 选择"覆盖"所有文件
-
-3. **刷新PromptX角色注册表**
-   ```bash
-   # 重新初始化以注册新角色
+   # 初始化PromptX
    promptx_init
+
+   # 复制角色文件到PromptX目录
+   # Windows: xcopy "项目路径\.promptx\*" "%USERPROFILE%\.promptx\" /E /Y
+   # macOS/Linux: cp -r "项目路径/.promptx/*" "~/.promptx/"
+
+   # 激活逻明同学
+   promptx_action luoming
    ```
 
-### ✅ **第四步：验证安装结果**
+3. **开始使用**
+   - 看到激活成功信息即可开始使用
+   - 直接对话："逻明同学，帮我分析这个项目..."
 
-执行以下命令验证逻明同学是否安装成功：
+## 🎯 核心特色
 
-```bash
-# 1. 查看可用角色列表
-promptx_hello
+- **🤖 全自动化AI助手** - 提出需求即可自动分析、规划、执行
+- **💬 说人话交流** - 用生活化语言解释技术概念
+- **🧠 智能决策** - 具备自主思考和问题解决能力
+- **🔄 自适应执行** - 遇到问题自动调整策略直到满意
 
-# 2. 激活逻明同学角色
-promptx_action luoming
-```
+## 📞 遇到问题？
 
-**安装成功标志**：
-- `promptx_hello`的角色列表中显示"逻明同学"
-- `promptx_action luoming`成功激活角色
-- 看到逻明同学的完整能力介绍和欢迎信息
-
-## ✨ 核心特性
-
-### 🧠 **智能分析能力**
-- **深度问题分析** - 从模糊描述中快速识别真实需求
-- **系统性思维** - 多维度思考，总分总结构
-- **贾维斯式智能** - 复杂数据分析、战略规划、自主决策
-
-### ⚡ **程序化自适应执行** (v16精华)
-- **五步程序化流程** - 任务接收→三次信息收集→智能规划→分步执行→质量检查
-- **"别贪多，一步一步做"原则** - 严格按步骤执行，确保质量
-- **自适应回退机制** - 发现问题立即回到相应步骤优化
-
-### 💬 **人性化交流** ("说人话"理念)
-- **例子先行策略** - 用具体例子解释抽象概念
-- **生活化比喻** - 技术概念生活化（如API=餐厅服务员）
-- **通俗易懂表达** - 避免技术黑话，降低理解门槛
-
-### 🔧 **系统化工具使用**
-- **逻辑门架构** - AND/OR/NOT/XOR门验证决策逻辑
-- **程序控制结构** - 顺序/分支/循环/函数结构化执行
-- **智能工具选择** - 基于任务复杂度选择最优工具组合
-
-## 📁 文件结构
-
-```
-.promptx/resource/domain/luoming/
-├── luoming.role.md                           # 主角色文件
-├── baseline-config.md                        # 出厂默认配置
-├── factory-config.md                         # 工厂配置管理
-├── architecture-overview.md                  # 逻辑门架构说明
-├── adaptive-system-integration.md            # 自适应系统集成说明
-├── tool-workflow-architecture.md             # 工具使用工作流程架构
-├── thought/                                  # 思维模式文件
-│   ├── problem-analysis.thought.md           # 问题分析思维
-│   ├── jarvis-intelligence.thought.md        # 贾维斯智能思维
-│   ├── logic-gate-architecture.thought.md    # 逻辑门架构思维
-│   ├── config-management.thought.md          # 配置管理思维
-│   └── example-first-thinking.thought.md     # 例子先行思维模式 (v16新增)
-└── execution/                                # 执行流程文件
-    ├── solution-design.execution.md          # 解决方案设计流程
-    ├── program-control-structure.execution.md # 程序控制结构流程
-    ├── adaptive-learning.execution.md        # 自适应学习流程
-    ├── tool-integration.execution.md         # 工具集成执行流程
-    ├── adaptive-execution-flow.execution.md  # 程序化自适应执行流程 (v16新增)
-    └── human-friendly-communication.execution.md # 人性化交流执行规范 (v16新增)
-```
-
-## 🚀 使用方法
-
-### 📋 **使用前检查清单**
-在开始使用逻明同学之前，请确认已完成：
-- ✅ **PromptX MCP服务器配置** - 参考上方完整安装指南
-- ✅ **PromptX工作环境初始化** - 执行过`promptx_init`
-- ✅ **逻明同学角色包安装** - 角色文件已复制到PromptX目录
-- ✅ **角色注册表刷新** - 重新执行过`promptx_init`
-
-### 🎯 **激活逻明同学**
-
-```bash
-# 1. 查看可用角色（确认逻明同学在列表中）
-promptx_hello
-
-# 2. 激活逻明同学角色
-promptx_action luoming
-```
-
-**激活成功标志**：
-- 看到"逻明同学v16程序化自适应版已成功激活"的确认信息
-- 显示逻明同学的完整能力介绍
-- 可以开始享受全自动化AI助手服务
-
-### 🤖 **逻明同学的使用特色**
-
-#### 💡 **全自动化工作模式**
-逻明同学是一个**全自动化AI角色**，您只需要：
-- 🎯 **提出需求** - 用自然语言描述您的项目或问题
-- 🔄 **自动执行** - 逻明同学会自动分析、规划、执行
-- 📊 **主动反馈** - 完成每个阶段后主动汇报进度
-- 🤝 **征求意见** - 关键决策点会征求您的确认
-
-#### 🎭 **使用示例**
-
-**项目管理场景**：
-```
-用户：我想开发一个在线教育平台，请帮我完成整个项目规划
-逻明同学：[自动执行]
-1. 需求分析和用户画像
-2. 技术架构设计
-3. 功能模块规划
-4. 开发时间线
-5. 风险评估和应对策略
-6. 征求您的意见和调整建议
-```
-
-**技术问题解决**：
-```
-用户：我的React项目性能有问题，帮我优化
-逻明同学：[自动执行]
-1. 分析性能瓶颈
-2. 制定优化方案
-3. 提供具体代码改进
-4. 性能监控建议
-5. 验证优化效果
-```
-
-**学习指导场景**：
-```
-用户：我想学习机器学习，制定一个学习计划
-逻明同学：[自动执行]
-1. 评估当前技术水平
-2. 设计个性化学习路径
-3. 推荐学习资源
-4. 制定实践项目
-5. 定期检查和调整计划
-```
-
-### 3. 核心功能使用
-
-#### 🔍 **复杂问题分析**
-```
-逻明同学，我遇到了[具体问题描述]，请帮我分析问题本质和解决方案
-```
-
-#### 💡 **技术方案设计**
-```
-逻明同学，我需要设计一个[项目描述]，请帮我制定技术方案
-```
-
-#### 📊 **项目规划管理**
-```
-逻明同学，请帮我规划[项目名称]的实施计划和风险控制
-```
-
-## 🎯 v16版本更新内容
-
-### 🆕 **新增特性**
-- **程序化自适应执行流程** - 融合v16模板的五步执行框架
-- **"说人话"交流理念** - 大幅提升用户交互友好性
-- **例子先行思维模式** - 具体例子→抽象概念的认知路径
-- **技术概念生活化比喻库** - 降低技术理解门槛
-
-### 🔄 **优化改进**
-- **执行力检查清单** - 确保高质量执行的程序化验证
-- **自适应回退机制** - 智能问题识别和流程优化
-- **三次信息收集强制** - 确保信息全面可靠
-- **工具使用流程增强** - 融入新的执行原则和质量保证
-
-## 🏆 核心优势
-
-1. **🎯 专业性与友好性并重** - 既保持技术专业性，又具备极佳的用户体验
-2. **⚡ 严谨性与灵活性统一** - 程序化执行确保质量，自适应机制保证灵活
-3. **🧠 系统性与实用性结合** - 完整的理论框架支撑实用的解决方案
-4. **💬 智能化与人性化融合** - AI级别的分析能力配合人性化的交流方式
-
-## 📝 开发历程
-
-- **v1.0** - 基础问题分析能力
-- **v2.0** - 贾维斯智能分析集成
-- **v3.0** - 逻辑门架构设计
-- **v4.0** - 程序控制结构化
-- **v5.0** - 自适应学习系统
-- **v6.0** - 工具集成使用流程
-- **v16.0** - 程序化自适应思维融合 (当前版本)
-
-## 🛠️ 故障排除
-
-### ❌ **常见问题及解决方案**
-
-#### **问题1：找不到promptx命令**
-```
-错误信息：Command 'promptx_hello' not found
-```
-**解决方案**：
-1. 检查MCP服务器配置是否正确
-2. 确认已重启Claude Desktop
-3. 验证配置文件路径和JSON格式
-
-#### **问题2：逻明同学角色激活失败**
-```
-错误信息：角色 "luoming" 不存在
-```
-**解决方案**：
-1. **检查角色文件安装**：确认已将逻明同学项目的`.promptx`目录内容复制到PromptX工作目录
-2. **验证文件结构**：检查`~/.promptx/resource/domain/luoming/`目录是否存在且包含角色文件
-3. **刷新角色注册表**：运行`promptx_init`重新注册所有角色
-4. **重新安装角色包**：如果问题持续，重新执行角色包安装步骤
-
-#### **问题3：MCP服务器连接失败**
-```
-错误信息：MCP server connection failed
-```
-**解决方案**：
-1. 检查网络连接是否正常
-2. 确认Node.js环境可用
-3. 尝试手动运行MCP服务器命令
-4. 查看Claude Desktop日志文件
-
-#### **问题4：角色功能不完整**
-```
-现象：逻明同学回复简单，缺少专业能力
-```
-**解决方案**：
-1. 确认角色激活成功（看到完整激活信息）
-2. 检查所有.thought.md和.execution.md文件是否存在
-3. 重新激活角色：`promptx_action luoming`
-
-#### **问题5：角色文件安装位置不确定**
-```
-问题：不知道应该将角色文件复制到哪里
-```
-**解决方案**：
-1. **查找PromptX工作目录**：通常在用户主目录下的`.promptx`文件夹
-2. **Windows路径**：`C:\Users\[用户名]\.promptx\`
-3. **macOS/Linux路径**：`~/.promptx/`
-4. **验证方法**：执行`promptx_init`后查看输出信息中的工作目录路径
-
-### 📞 **获取帮助**
-- **PromptX框架问题** - 访问：https://github.com/Deepractice/PromptX/issues
-- **逻明同学角色问题** - 在本项目提交Issue：https://github.com/xiuminsama99/luoming-v16-adaptive-thinking/issues
-- **安装配置问题** - 参考PromptX官方文档或联系开发者微信：`deepracticex`
-
-## 🤝 贡献指南
-
-欢迎提交Issue和Pull Request来改进逻明同学的能力！
-
-### 📋 **贡献方式**
-- **Bug报告** - 发现问题请提交详细的Issue
-- **功能建议** - 欢迎提出新功能和改进建议
-- **代码贡献** - 提交Pull Request改进角色能力
-- **文档完善** - 帮助改进使用说明和配置指南
-
-## 📄 许可证
-
-本项目采用MIT许可证。
+- **PromptX框架问题** → https://github.com/Deepractice/PromptX/issues
+- **逻明同学问题** → https://github.com/xiuminsama99/luoming-v16-adaptive-thinking/issues
 
 ---
 
-**逻明同学v16 - 让AI真正为人服务，用人话与用户交流，像AI程序一样精确思考！** 🧠💬✨
+**📁 [查看完整安装说明](./README-FULL.md)** | **MIT许可证** | **逻明同学v16 - 让AI真正为人服务！** 🧠💬✨
+
